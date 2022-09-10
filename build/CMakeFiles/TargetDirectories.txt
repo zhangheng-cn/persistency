@@ -1,0 +1,6 @@
+/home/zh/code/persistency/build/CMakeFiles/rebuild_cache.dir
+/home/zh/code/persistency/build/CMakeFiles/edit_cache.dir
+/home/zh/code/persistency/build/CMakeFiles/persistency.dir
+/home/zh/code/persistency/build/test/CMakeFiles/rebuild_cache.dir
+/home/zh/code/persistency/build/test/CMakeFiles/edit_cache.dir
+/home/zh/code/persistency/build/test/CMakeFiles/test_per.dir
