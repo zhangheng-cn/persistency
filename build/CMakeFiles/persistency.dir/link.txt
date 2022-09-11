@@ -1,2 +1,0 @@
-/usr/bin/ar qc libpersistency.a  CMakeFiles/persistency.dir/ara/core/error_code.cpp.o CMakeFiles/persistency.dir/ara/core/instance_specifier.cpp.o CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.o CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.o CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o
-/usr/bin/ranlib libpersistency.a
