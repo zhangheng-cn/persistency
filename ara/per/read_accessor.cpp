@@ -8,21 +8,25 @@ namespace per {
 ReadAccessor::~ReadAccessor() {
   fclose(fp_);
 }
+// kPhysicalStorageFailure kIsEof
 ara::core::Result<char> ReadAccessor::PeekChar () const noexcept {
   return std::move(ara::core::Result<char>('a'));
+  return std::move(ara::core::Result<char>(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kPhysicalStorageFailure), GetPerDomain())));
 }
-
+// kPhysicalStorageFailure kIsEof
 ara::core::Result<ara::core::Byte> ReadAccessor::PeekByte () const noexcept {
   return std::move(ara::core::Result<ara::core::Byte>('a'));
-}
 
+}
+// kPhysicalStorageFailure kIsEof
 ara::core::Result<char> ReadAccessor::GetChar () noexcept {
   return std::move(ara::core::Result<char>('a'));
 }
-
+// kPhysicalStorageFailure kIsEof
 ara::core::Result<ara::core::Byte> ReadAccessor::GetByte () noexcept {
   return std::move(ara::core::Result<ara::core::Byte>('a'));
 }
+// kPhysicalStorageFailure kIsEof
 ara::core::Result<ara::core::String> ReadAccessor::ReadText () noexcept {
   ara::core::String str{};
   uint64_t need_size = GetSize() - GetPosition();
@@ -30,7 +34,7 @@ ara::core::Result<ara::core::String> ReadAccessor::ReadText () noexcept {
   uint64_t read_len = fread((void*)str.c_str(), sizeof(char), need_size, fp_);
   return std::move(ara::core::Result<ara::core::String>(std::move(str)));
 }
-
+// kPhysicalStorageFailure kIsEof
 ara::core::Result<ara::core::String> ReadAccessor::ReadText (std::uint64_t n) noexcept {
   if(n > GetSize() - GetPosition()) {
     return ara::core::Result<ara::core::String>("error");
@@ -70,10 +74,12 @@ std::uint64_t ReadAccessor::GetSize () const noexcept {
 std::uint64_t ReadAccessor::GetPosition () const noexcept {
   return ftell(fp_);
 }
+// kInvalidPosition
 ara::core::Result<void> ReadAccessor::SetPosition (std::uint64_t position) noexcept {
   fseek(fp_, position, SEEK_SET);
   return ara::core::Result<void>();
 }
+// kInvalidPosition
 ara::core::Result<std::uint64_t> ReadAccessor::MovePosition (Origin origin, std::int64_t offset) noexcept {
   if(origin == Origin::kBeginning) {
     fseek(fp_, offset, SEEK_SET);

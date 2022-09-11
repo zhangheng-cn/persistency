@@ -9,6 +9,7 @@ test/CMakeFiles/test_per.dir/test_per.cpp.o
  ../ara/core/optional.h
  ../ara/core/result.h
  ../ara/per/file_storage.h
+ ../ara/per/per_error_domain.h
  ../ara/per/read_accessor.h
  ../ara/per/read_write_accessor.h
  ../ara/per/shared_handle.h

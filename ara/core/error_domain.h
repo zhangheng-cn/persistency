@@ -18,7 +18,7 @@ namespace ara
             /// @brief Alias type of the error code
             using CodeType = uint32_t;
 
-        private:
+        protected:
             IdType mId;
 
         public:

@@ -217,6 +217,60 @@ ara/per/file_storage.cpp.s:
 	$(MAKE) -f CMakeFiles/persistency.dir/build.make CMakeFiles/persistency.dir/ara/per/file_storage.cpp.s
 .PHONY : ara/per/file_storage.cpp.s
 
+ara/per/key_value_storage.o: ara/per/key_value_storage.cpp.o
+
+.PHONY : ara/per/key_value_storage.o
+
+# target to build an object file
+ara/per/key_value_storage.cpp.o:
+	$(MAKE) -f CMakeFiles/persistency.dir/build.make CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.o
+.PHONY : ara/per/key_value_storage.cpp.o
+
+ara/per/key_value_storage.i: ara/per/key_value_storage.cpp.i
+
+.PHONY : ara/per/key_value_storage.i
+
+# target to preprocess a source file
+ara/per/key_value_storage.cpp.i:
+	$(MAKE) -f CMakeFiles/persistency.dir/build.make CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.i
+.PHONY : ara/per/key_value_storage.cpp.i
+
+ara/per/key_value_storage.s: ara/per/key_value_storage.cpp.s
+
+.PHONY : ara/per/key_value_storage.s
+
+# target to generate assembly for a file
+ara/per/key_value_storage.cpp.s:
+	$(MAKE) -f CMakeFiles/persistency.dir/build.make CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.s
+.PHONY : ara/per/key_value_storage.cpp.s
+
+ara/per/per_error_domain.o: ara/per/per_error_domain.cpp.o
+
+.PHONY : ara/per/per_error_domain.o
+
+# target to build an object file
+ara/per/per_error_domain.cpp.o:
+	$(MAKE) -f CMakeFiles/persistency.dir/build.make CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.o
+.PHONY : ara/per/per_error_domain.cpp.o
+
+ara/per/per_error_domain.i: ara/per/per_error_domain.cpp.i
+
+.PHONY : ara/per/per_error_domain.i
+
+# target to preprocess a source file
+ara/per/per_error_domain.cpp.i:
+	$(MAKE) -f CMakeFiles/persistency.dir/build.make CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.i
+.PHONY : ara/per/per_error_domain.cpp.i
+
+ara/per/per_error_domain.s: ara/per/per_error_domain.cpp.s
+
+.PHONY : ara/per/per_error_domain.s
+
+# target to generate assembly for a file
+ara/per/per_error_domain.cpp.s:
+	$(MAKE) -f CMakeFiles/persistency.dir/build.make CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.s
+.PHONY : ara/per/per_error_domain.cpp.s
+
 ara/per/read_accessor.o: ara/per/read_accessor.cpp.o
 
 .PHONY : ara/per/read_accessor.o
@@ -290,6 +344,12 @@ help:
 	@echo "... ara/per/file_storage.o"
 	@echo "... ara/per/file_storage.i"
 	@echo "... ara/per/file_storage.s"
+	@echo "... ara/per/key_value_storage.o"
+	@echo "... ara/per/key_value_storage.i"
+	@echo "... ara/per/key_value_storage.s"
+	@echo "... ara/per/per_error_domain.o"
+	@echo "... ara/per/per_error_domain.i"
+	@echo "... ara/per/per_error_domain.s"
 	@echo "... ara/per/read_accessor.o"
 	@echo "... ara/per/read_accessor.i"
 	@echo "... ara/per/read_accessor.s"

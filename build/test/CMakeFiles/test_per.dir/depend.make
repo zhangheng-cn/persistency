@@ -8,6 +8,7 @@ test/CMakeFiles/test_per.dir/test_per.cpp.o: ../ara/core/instance_specifier.h
 test/CMakeFiles/test_per.dir/test_per.cpp.o: ../ara/core/optional.h
 test/CMakeFiles/test_per.dir/test_per.cpp.o: ../ara/core/result.h
 test/CMakeFiles/test_per.dir/test_per.cpp.o: ../ara/per/file_storage.h
+test/CMakeFiles/test_per.dir/test_per.cpp.o: ../ara/per/per_error_domain.h
 test/CMakeFiles/test_per.dir/test_per.cpp.o: ../ara/per/read_accessor.h
 test/CMakeFiles/test_per.dir/test_per.cpp.o: ../ara/per/read_write_accessor.h
 test/CMakeFiles/test_per.dir/test_per.cpp.o: ../ara/per/shared_handle.h

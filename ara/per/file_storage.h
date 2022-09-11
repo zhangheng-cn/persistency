@@ -9,20 +9,21 @@
 #include "ara/per/unique_handle.h"
 #include "ara/per/read_accessor.h"
 #include "ara/per/read_write_accessor.h"
+#include "ara/per/per_error_domain.h"
 
 namespace ara {
 namespace per {
 class FileStorage;
 ara::core::Result<SharedHandle<FileStorage> > OpenFileStorage (const ara::core::InstanceSpecifier &fs) noexcept;
-ara::core::Result<void> RecoverAllFiles (const ara::core::InstanceSpecifier &fs) noexcept;
-ara::core::Result<void> ResetAllFiles (const ara::core::InstanceSpecifier &fs) noexcept;
+// ara::core::Result<void> RecoverAllFiles (const ara::core::InstanceSpecifier &fs) noexcept;
+// ara::core::Result<void> ResetAllFiles (const ara::core::InstanceSpecifier &fs) noexcept;
 ara::core::Result<std::uint64_t> GetCurrentFileStorageSize (const ara::core::InstanceSpecifier &fs) noexcept;
 
 enum class OpenMode : std::uint32_t {
-  kAtTheBeginning= 1 << 0,
-  kAtTheEnd= 1 << 1,
-  kTruncate= 1 << 2,
-  kAppend= 1 << 3
+  kAtTheBeginning= 1 << 0, // read-->rb   write-->   read_write-->   
+  kAtTheEnd= 1 << 1, // read-->    write-->   read_write-->
+  kTruncate= 1 << 2, // read-->error   write-->wb  read_write-->w+b 
+  kAppend= 1 << 3 // read-->error   write-->ab  read_write-->a+b 
 };
 
 constexpr OpenMode operator| (OpenMode left, OpenMode right);
@@ -59,11 +60,11 @@ public:
   FileStorage& operator= (FileStorage &&fs)=delete;
   FileStorage& operator= (const FileStorage &)=delete;
   ~FileStorage () noexcept;
-  ara::core::Result<ara::core::Vector<ara::core::String> > GetAllFileNames () const noexcept;
+  // ara::core::Result<ara::core::Vector<ara::core::String> > GetAllFileNames () const noexcept;
   ara::core::Result<void> DeleteFile (ara::core::StringView fileName) noexcept;
   ara::core::Result<bool> FileExists (ara::core::StringView fileName) const noexcept;
-  ara::core::Result<void> RecoverFile (ara::core::StringView fileName) noexcept;
-  ara::core::Result<void> ResetFile (ara::core::StringView fileName) noexcept;
+  // ara::core::Result<void> RecoverFile (ara::core::StringView fileName) noexcept;
+  // ara::core::Result<void> ResetFile (ara::core::StringView fileName) noexcept;
   ara::core::Result<std::uint64_t> GetCurrentFileSize (ara::core::StringView fileName) const noexcept;
   ara::core::Result<FileInfo> GetFileInfo (ara::core::StringView fileName) const noexcept;
   ara::core::Result<UniqueHandle<ReadWriteAccessor> > OpenFileReadWrite (ara::core::StringView fileName) noexcept;
@@ -77,12 +78,17 @@ public:
   // ara::core::Result<UniqueHandle<ReadWriteAccessor> > OpenFileWriteOnly (ara::core::StringView fileName, OpenMode mode, ara::core::Span<ara::core::Byte > buffer) noexcept;
 private:
   friend ara::core::Result<SharedHandle<FileStorage> > OpenFileStorage (const ara::core::InstanceSpecifier &fs) noexcept;
-  friend ara::core::Result<void> RecoverAllFiles (const ara::core::InstanceSpecifier &fs) noexcept;
-  friend ara::core::Result<void> ResetAllFiles (const ara::core::InstanceSpecifier &fs) noexcept;
+  // friend ara::core::Result<void> RecoverAllFiles (const ara::core::InstanceSpecifier &fs) noexcept;
+  // friend ara::core::Result<void> ResetAllFiles (const ara::core::InstanceSpecifier &fs) noexcept;
   friend ara::core::Result<std::uint64_t> GetCurrentFileStorageSize (const ara::core::InstanceSpecifier &fs) noexcept;
 private:
-  FileStorage(ara::core::StringView path) {}
-  ara::core::StringView path;
+  static SharedHandle<FileStorage> GetInstance(ara::core::StringView path, uint8_t permission) {
+    static SharedHandle<FileStorage> instance(new FileStorage(path, permission));
+    return instance;
+  }
+  FileStorage(ara::core::StringView path, uint8_t permission) : path_(path), permission_(permission) {}
+  ara::core::StringView path_;
+  uint8_t permission_;
 };
 
 

@@ -1,1 +1,1 @@
-/usr/bin/c++    -rdynamic CMakeFiles/test_per.dir/test_per.cpp.o  -o test_per   -L/home/zh/code/persistency/build  -Wl,-rpath,/home/zh/code/persistency/build -lpersistency 
+/usr/bin/c++    -rdynamic CMakeFiles/test_per.dir/test_per.cpp.o  -o test_per   -L/home/zh/code/persistency/build  -L/home/zh/code/persistency/third_party/lib/leveldb  -Wl,-rpath,/home/zh/code/persistency/build:/home/zh/code/persistency/third_party/lib/leveldb -lpersistency -lleveldb 

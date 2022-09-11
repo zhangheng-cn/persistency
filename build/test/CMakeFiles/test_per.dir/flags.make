@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/zh/code/persistency/. -I/home/zh/code/persistency/./ara/core -I/home/zh/code/persistency/./ara/per 
+CXX_INCLUDES = -I/home/zh/code/persistency/. -I/home/zh/code/persistency/ara/core -I/home/zh/code/persistency/ara/per -I/home/zh/code/persistency/third_party/include 
 

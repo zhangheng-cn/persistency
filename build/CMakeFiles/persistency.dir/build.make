@@ -96,9 +96,35 @@ CMakeFiles/persistency.dir/ara/per/file_storage.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/persistency.dir/ara/per/file_storage.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zh/code/persistency/ara/per/file_storage.cpp -o CMakeFiles/persistency.dir/ara/per/file_storage.cpp.s
 
+CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.o: CMakeFiles/persistency.dir/flags.make
+CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.o: ../ara/per/key_value_storage.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zh/code/persistency/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.o -c /home/zh/code/persistency/ara/per/key_value_storage.cpp
+
+CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zh/code/persistency/ara/per/key_value_storage.cpp > CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.i
+
+CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zh/code/persistency/ara/per/key_value_storage.cpp -o CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.s
+
+CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.o: CMakeFiles/persistency.dir/flags.make
+CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.o: ../ara/per/per_error_domain.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zh/code/persistency/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.o -c /home/zh/code/persistency/ara/per/per_error_domain.cpp
+
+CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/zh/code/persistency/ara/per/per_error_domain.cpp > CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.i
+
+CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/zh/code/persistency/ara/per/per_error_domain.cpp -o CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.s
+
 CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o: CMakeFiles/persistency.dir/flags.make
 CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o: ../ara/per/read_accessor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zh/code/persistency/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zh/code/persistency/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o -c /home/zh/code/persistency/ara/per/read_accessor.cpp
 
 CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.i: cmake_force
@@ -111,7 +137,7 @@ CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.s: cmake_force
 
 CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o: CMakeFiles/persistency.dir/flags.make
 CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o: ../ara/per/read_write_accessor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zh/code/persistency/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/zh/code/persistency/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o -c /home/zh/code/persistency/ara/per/read_write_accessor.cpp
 
 CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.i: cmake_force
@@ -127,6 +153,8 @@ persistency_OBJECTS = \
 "CMakeFiles/persistency.dir/ara/core/error_code.cpp.o" \
 "CMakeFiles/persistency.dir/ara/core/instance_specifier.cpp.o" \
 "CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o" \
+"CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.o" \
+"CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.o" \
 "CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o" \
 "CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o"
 
@@ -136,11 +164,13 @@ persistency_EXTERNAL_OBJECTS =
 libpersistency.a: CMakeFiles/persistency.dir/ara/core/error_code.cpp.o
 libpersistency.a: CMakeFiles/persistency.dir/ara/core/instance_specifier.cpp.o
 libpersistency.a: CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o
+libpersistency.a: CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.o
+libpersistency.a: CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.o
 libpersistency.a: CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o
 libpersistency.a: CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o
 libpersistency.a: CMakeFiles/persistency.dir/build.make
 libpersistency.a: CMakeFiles/persistency.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zh/code/persistency/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libpersistency.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/zh/code/persistency/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libpersistency.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/persistency.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/persistency.dir/link.txt --verbose=$(VERBOSE)
 

@@ -15,6 +15,8 @@ public:
   // ara::core::Result<void> WriteBinary (ara::core::Span< const ara::core::Byte > b) noexcept;
   ReadWriteAccessor& operator<< (ara::core::StringView s) noexcept;
 private:
+  friend class FileStorage;
+  ReadWriteAccessor(FILE *fp, bool readbale=true): ReadAccessor(fp, readbale) {}
 };
 
 } // ns per

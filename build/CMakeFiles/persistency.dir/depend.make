@@ -18,6 +18,7 @@ CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o: ../ara/core/error_domain.
 CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o: ../ara/core/instance_specifier.h
 CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o: ../ara/core/optional.h
 CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o: ../ara/core/result.h
+CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o: ../ara/per/per_error_domain.h
 CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o: ../ara/per/read_accessor.h
 CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o: ../ara/per/read_write_accessor.h
 CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o: ../ara/per/shared_handle.h
@@ -26,11 +27,19 @@ CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o: ../ara/per/file_storage.c
 CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o: ../ara/per/file_storage.h
 CMakeFiles/persistency.dir/ara/per/file_storage.cpp.o: ../ara/per/read_accessor.h
 
+CMakeFiles/persistency.dir/ara/per/key_value_storage.cpp.o: ../ara/per/key_value_storage.cpp
+
+CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.o: ../ara/core/error_code.h
+CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.o: ../ara/core/error_domain.h
+CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.o: ../ara/per/per_error_domain.cpp
+CMakeFiles/persistency.dir/ara/per/per_error_domain.cpp.o: ../ara/per/per_error_domain.h
+
 CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o: ../ara/core/core.h
 CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o: ../ara/core/error_code.h
 CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o: ../ara/core/error_domain.h
 CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o: ../ara/core/optional.h
 CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o: ../ara/core/result.h
+CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o: ../ara/per/per_error_domain.h
 CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o: ../ara/per/read_accessor.cpp
 CMakeFiles/persistency.dir/ara/per/read_accessor.cpp.o: ../ara/per/read_accessor.h
 
@@ -39,6 +48,7 @@ CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o: ../ara/core/error_
 CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o: ../ara/core/error_domain.h
 CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o: ../ara/core/optional.h
 CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o: ../ara/core/result.h
+CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o: ../ara/per/per_error_domain.h
 CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o: ../ara/per/read_accessor.h
 CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o: ../ara/per/read_write_accessor.cpp
 CMakeFiles/persistency.dir/ara/per/read_write_accessor.cpp.o: ../ara/per/read_write_accessor.h

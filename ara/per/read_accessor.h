@@ -4,6 +4,7 @@
 #include <iostream>
 #include "ara/core/core.h"
 #include "ara/core/result.h"
+#include "ara/per/per_error_domain.h"
 
 namespace ara {
 namespace per {
