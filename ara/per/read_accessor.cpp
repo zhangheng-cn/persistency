@@ -28,7 +28,15 @@ ara::core::Result<ara::core::Byte> ReadAccessor::GetByte () noexcept {
 }
 // kPhysicalStorageFailure kIsEof
 ara::core::Result<ara::core::String> ReadAccessor::ReadText () noexcept {
+  if(!isReadable_) {
+    return ara::core::Result<ara::core::String>("!isReadable_");
+  }
   ara::core::String str{};
+  // file in cache, GetSize() can't get right size
+  if(GetSize() < GetPosition()) {
+    return ara::core::Result<ara::core::String>("file in cache");
+  }
+  std::cout << "GetSize : " << GetSize() << " GetPosition :  " << GetPosition() << "\n";
   uint64_t need_size = GetSize() - GetPosition();
   str.resize(need_size);
   uint64_t read_len = fread((void*)str.c_str(), sizeof(char), need_size, fp_);
@@ -36,6 +44,12 @@ ara::core::Result<ara::core::String> ReadAccessor::ReadText () noexcept {
 }
 // kPhysicalStorageFailure kIsEof
 ara::core::Result<ara::core::String> ReadAccessor::ReadText (std::uint64_t n) noexcept {
+  if(!isReadable_) {
+    return ara::core::Result<ara::core::String>("!isReadable_");
+  }
+  if(GetSize() < GetPosition()) {
+    return ara::core::Result<ara::core::String>("file in cache");
+  }
   if(n > GetSize() - GetPosition()) {
     return ara::core::Result<ara::core::String>("error");
   }
@@ -47,6 +61,10 @@ ara::core::Result<ara::core::String> ReadAccessor::ReadText (std::uint64_t n) no
 
 ara::core::Result<ara::core::Vector<ara::core::Byte> > ReadAccessor::ReadBinary () noexcept {
   ara::core::Vector<ara::core::Byte> vec{};
+  if(GetSize() < GetPosition()) {
+    // error
+    return std::move(ara::core::Result<ara::core::Vector<ara::core::Byte> >(std::move(vec)));
+  }
   uint64_t need_size = GetSize() - GetPosition();
   vec.resize(need_size);
   uint64_t read_len = fread(vec.data(), sizeof(ara::core::Byte), need_size, fp_);
@@ -55,6 +73,10 @@ ara::core::Result<ara::core::Vector<ara::core::Byte> > ReadAccessor::ReadBinary 
 
 ara::core::Result<ara::core::Vector<ara::core::Byte> > ReadAccessor::ReadBinary (std::uint64_t n) noexcept {
   ara::core::Vector<ara::core::Byte> vec{};
+  if(GetSize() < GetPosition()) {
+    // error
+    return std::move(ara::core::Result<ara::core::Vector<ara::core::Byte> >(std::move(vec)));
+  }
   if(n > GetSize() - GetPosition() ) {
     return ara::core::Result<ara::core::Vector<ara::core::Byte> >(vec);
   }
@@ -64,6 +86,9 @@ ara::core::Result<ara::core::Vector<ara::core::Byte> > ReadAccessor::ReadBinary 
 }
 
 ara::core::Result<ara::core::String> ReadAccessor::ReadLine (char delimiter) noexcept {
+  if (delimiter == '\n') {
+    // fgets()
+  }
   return ara::core::Result<ara::core::String>("readline");
 }
 std::uint64_t ReadAccessor::GetSize () const noexcept {

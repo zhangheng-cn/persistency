@@ -66,18 +66,37 @@ void test_file_storage(ara::core::String s) {
   
   auto fs = ret.Value();
   test_file_storage_func(fs);
-  auto uh_ret = fs->OpenFileReadOnly("test_file");
-  if(!uh_ret.HasValue()) {
-    std::cout << "OpenFileReadOnly return error " << uh_ret.Error().Message() << "\n";
+  std::cout << "=======================  OpenFileReadWrite ==============================\n";
+  auto uh_rw = fs->OpenFileWriteOnly("test_file");
+  if(!uh_rw.HasValue()) {
+    std::cout << "OpenFileReadWrite return error " << uh_rw.Error().Message() << "\n";
     return;
   }
-  // auto uh = std::move(uh_ret.Value());
-  auto text_ret = uh_ret.Value()->ReadText();
-  if(!text_ret.HasValue()) {
-    std::cout << "ReadText return error " << text_ret.Error().Message() << "\n";
+  auto text_write = uh_rw.Value()->WriteText("OpenFileReadWrite write test");
+  if(!text_write.HasValue()) {
+    std::cout << "WriteText return error " << text_write.Error().Message() << "\n";
+  }
+  uh_rw.Value()->SyncToFile();
+  uh_rw.Value()->SetPosition(0);
+  auto text_write_r = uh_rw.Value()->ReadText();
+  if(!text_write_r.HasValue()) {
+    std::cout << "ReadText return error " << text_write_r.Error().Message() << "\n";
     return;
   }
-  auto text = text_ret.Value();
+  std::cout << "text_write_r content : " << text_write_r.Value() << "\n";
+  std::cout << "=======================  OpenFileReadOnly ==============================\n";
+  auto uh_read = fs->OpenFileReadOnly("test_file");
+  if(!uh_read.HasValue()) {
+    std::cout << "OpenFileReadOnly return error " << uh_read.Error().Message() << "\n";
+    return;
+  }
+  // auto uh = std::move(uh_read.Value());
+  auto text_read = uh_read.Value()->ReadText();
+  if(!text_read.HasValue()) {
+    std::cout << "ReadText return error " << text_read.Error().Message() << "\n";
+    return;
+  }
+  auto text = text_read.Value();
   std::cout << "read content : " << text << "\n";
 
   return;

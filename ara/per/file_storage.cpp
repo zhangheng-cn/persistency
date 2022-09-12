@@ -68,6 +68,7 @@ ara::core::Result<void> FileStorage::DeleteFile (ara::core::StringView fileName)
     if(errno == EBUSY) {
       return ara::core::Result<void>(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kResourceBusy), GetPerDomain()));
     }
+    return ara::core::Result<void>(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kPhysicalStorageFailure), GetPerDomain()));
   }
   return ara::core::Result<void>();
 }
@@ -116,13 +117,18 @@ ara::core::Result<FileInfo> FileStorage::GetFileInfo (ara::core::StringView file
 }
 
 ara::core::Result<UniqueHandle<ReadWriteAccessor> > FileStorage::OpenFileReadWrite (ara::core::StringView fileName) noexcept {
-  if(!(permission_ & Permission::kRead && permission_ & Permission::kWrite)) {
-    return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kValidationFailed), GetPerDomain()));
+  if(!(permission_ & Permission::kRead 
+      && permission_ & Permission::kWrite)) {
+    return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kIllegalWriteAccess), GetPerDomain()));
   }
   FILE *fp = fopen((path_ + fileName).c_str(), "w+b");
   if(fp == nullptr) {
     // TODO 根据errorno 判断返回的error
     // 文件不存在
+    if(errno == EACCES) {}
+    if(errno == EBUSY) {
+      return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kResourceBusy), GetPerDomain()));
+    }
     return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kPhysicalStorageFailure), GetPerDomain()));
   }
   return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(UniqueHandle<ReadWriteAccessor>(new ReadWriteAccessor(fp)));
@@ -137,6 +143,10 @@ ara::core::Result<UniqueHandle<ReadWriteAccessor> > FileStorage::OpenFileReadWri
   if(fp == nullptr) {
     // TODO 根据errorno 判断返回的error
     // 文件不存在
+    if(errno == EACCES) {}
+    if(errno == EBUSY) {
+      return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kResourceBusy), GetPerDomain()));
+    }
     return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kPhysicalStorageFailure), GetPerDomain()));
   }
   return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(UniqueHandle<ReadWriteAccessor>(new ReadWriteAccessor(fp)));
@@ -153,6 +163,10 @@ ara::core::Result<UniqueHandle<ReadAccessor> > FileStorage::OpenFileReadOnly (ar
   if(fp == nullptr) {
     // TODO 根据errorno 判断返回的error
     // 文件不存在
+    if(errno == EACCES) {}
+    if(errno == EBUSY) {
+      return ara::core::Result<UniqueHandle<ReadAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kResourceBusy), GetPerDomain()));
+    }
     return ara::core::Result<UniqueHandle<ReadAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kPhysicalStorageFailure), GetPerDomain()));
   }
   return ara::core::Result<UniqueHandle<ReadAccessor> >(UniqueHandle<ReadAccessor>(new ReadAccessor(fp)));
@@ -167,6 +181,10 @@ ara::core::Result<UniqueHandle<ReadAccessor> > FileStorage::OpenFileReadOnly (ar
   if(fp == nullptr) {
     // TODO 根据errorno 判断返回的error
     // 文件不存在
+    if(errno == EACCES) {}
+    if(errno == EBUSY) {
+      return ara::core::Result<UniqueHandle<ReadAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kResourceBusy), GetPerDomain()));
+    }
     return ara::core::Result<UniqueHandle<ReadAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kPhysicalStorageFailure), GetPerDomain()));
   }
   return ara::core::Result<UniqueHandle<ReadAccessor> >(UniqueHandle<ReadAccessor>(new ReadAccessor(fp)));
@@ -180,7 +198,11 @@ ara::core::Result<UniqueHandle<ReadWriteAccessor> > FileStorage::OpenFileWriteOn
   }
   FILE *fp = fopen((path_ + fileName).c_str(), "wb");
   if(fp == nullptr) {
-    // TODO 根据errorno 判断返回的error
+    // TODO 
+    if(errno == EACCES) {}
+    if(errno == EBUSY) {
+      return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kResourceBusy), GetPerDomain()));
+    }
     return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kPhysicalStorageFailure), GetPerDomain()));
   }
   return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(UniqueHandle<ReadWriteAccessor>(new ReadWriteAccessor(fp, false)));
@@ -192,7 +214,11 @@ ara::core::Result<UniqueHandle<ReadWriteAccessor> > FileStorage::OpenFileWriteOn
   }
   FILE *fp = fopen((path_ + fileName).c_str(), "wb");
   if(fp == nullptr) {
-    // TODO 根据errorno 判断返回的error
+    // TODO 
+    if(errno == EACCES) {}
+    if(errno == EBUSY) {
+      return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kResourceBusy), GetPerDomain()));
+    }
     return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(ara::core::ErrorCode(static_cast<ara::core::ErrorDomain::CodeType>(PerErrc::kPhysicalStorageFailure), GetPerDomain()));
   }
   return ara::core::Result<UniqueHandle<ReadWriteAccessor> >(UniqueHandle<ReadWriteAccessor>(new ReadWriteAccessor(fp, false)));

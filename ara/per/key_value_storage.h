@@ -41,6 +41,17 @@ public:
   ara::core::Result<void> SyncToStorage () noexcept;
   ara::core::Result<void> DiscardPendingChanges () noexcept;
 private:
+  friend ara::core::Result<SharedHandle<KeyValueStorage> > OpenKeyValueStorage(const ara::core::InstanceSpecifier &kvs) noexcept;
+  friend ara::core::Result<void> RecoverKeyValueStorage (const ara::core::InstanceSpecifier &kvs) noexcept;
+  friend ara::core::Result<void> ResetKeyValueStorage (const ara::core::InstanceSpecifier &kvs) noexcept;
+  friend ara::core::Result<void> ResetKeyValueStorage (const ara::core::InstanceSpecifier &kvs) noexcept;
+private:
+  static SharedHandle<KeyValueStorage> GetInstance(leveldb::DB *db) {
+    static SharedHandle<KeyValueStorage> instance(new KeyValueStorage(db));
+    return instance;
+  }
+  KeyValueStorage(leveldb::DB *db) : level_db_(db) {
+  }
   leveldb::DB *level_db_;
 };
 
